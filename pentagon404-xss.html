@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Pentagon404 - Advanced Playground</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-bug"></i> XSS Pentagon404 Platform</h1>
+            <div class="controls">
+                <button id="toggleTheme"><i class="fas fa-moon"></i></button>
+                <button id="resetAll"><i class="fas fa-redo"></i> Reset</button>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="challenges-container">
+                <div class="sidebar">
+                    <h2><i class="fas fa-list-ol"></i> Challenges</h2>
+                    <ul id="challengeList">
+                        <li class="active" data-level="1">Level 1: Basic Script Injection</li>
+                        <li data-level="2">Level 2: Simple Tag Filter</li>
+                        <li data-level="3">Level 3: Attribute Injection</li>
+                        <li data-level="4">Level 4: Event Handler Basics</li>
+                        <li data-level="5">Level 5: DOM-Based XSS</li>
+                        <li data-level="6">Level 6: JavaScript URI</li>
+                        <li data-level="7">Level 7: SVG Vector</li>
+                        <li data-level="8">Level 8: Filter Evasion</li>
+                        <li data-level="9">Level 9: HTML Entity Encoding</li>
+                        <li data-level="10">Level 10: Hex Encoding</li>
+                        <li data-level="11">Level 11: Unicode Obfuscation</li>
+                        <li data-level="12">Level 12: Template Literals</li>
+                        <li data-level="13">Level 13: CSS Injection</li>
+                        <li data-level="14">Level 14: CSP Bypass</li>
+                        <li data-level="15">Level 15: Advanced Obfuscation</li>
+                        <li data-level="16">Level 16: Ultimate Challenge</li>
+                    </ul>
+                    
+                    <div class="cheat-sheet">
+                        <h2><i class="fas fa-book"></i> XSS Cheat Sheet</h2>
+                        <div class="cheat-items">
+                            <button class="cheat-btn" data-payload="<script>alert(1)</script>">Basic Script</button>
+                            <button class="cheat-btn" data-payload="<img src=x onerror=alert(1)>">IMG Error</button>
+                            <button class="cheat-btn" data-payload="javascript:alert(1)">JS URI</button>
+                            <button class="cheat-btn" data-payload="<svg onload=alert(1)>">SVG Load</button>
+                            <button class="cheat-btn" data-payload="&#x3C;script&#x3E;alert(1)&#x3C;/script&#x3E;">HTML Entity</button>
+                            <button class="cheat-btn" data-payload="${alert(1)}">Template Literal</button>
+                            <button class="cheat-btn" data-payload="<style>@keyframes x{}</style><style onanimationstart=alert(1)>">CSS Injection</button>
+                            <button class="cheat-btn" data-payload="<iframe srcdoc='<script>alert(1)</script>'>">IFrame</button>
+                            <button class="cheat-btn" data-payload="<details/open/ontoggle=alert(1)>">Details Tag</button>
+                            <button class="cheat-btn" data-payload="<script>eval('al'+'ert(1)')</script>">String Concatenation</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-area">
+                    <div class="level-info">
+                        <h2 id="levelTitle">Level 1: Basic Injection</h2>
+                        <p id="levelDescription">Inject a script that executes alert(1) in the input field below.</p>
+                        <div class="difficulty">
+                            <span class="difficulty-label">Difficulty:</span>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-section">
+                        <div class="input-group">
+                            <label for="userInput">Your XSS Payload:</label>
+                            <div class="input-container">
+                                <textarea id="userInput" placeholder="Enter your XSS payload here..."></textarea>
+                                <button id="testPayload"><i class="fas fa-play"></i> Test</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="output-section">
+                        <div class="output-tabs">
+                            <button class="tab-btn active" data-tab="result">Result</button>
+                            <button class="tab-btn" data-tab="source">Source Code</button>
+                            <button class="tab-btn" data-tab="console">Console</button>
+                        </div>
+                        <div class="tab-content active" id="resultTab">
+                            <div class="rendered-output" id="renderedOutput">
+                                <!-- This is where the user's input will be rendered -->
+                                <p>Your payload will be rendered here after clicking "Test".</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="sourceTab">
+                            <pre id="sourceCode"><code>// Source code will appear here</code></pre>
+                        </div>
+                        <div class="tab-content" id="consoleTab">
+                            <div class="console-output" id="consoleOutput">
+                                <p>Console messages will appear here.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hint-section">
+                        <button id="toggleHint"><i class="fas fa-lightbulb"></i> Show Hint</button>
+                        <div class="hint-content" id="hintContent">
+                            <p>Try a basic script tag injection: &lt;script&gt;alert(1)&lt;/script&gt;</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <h2><i class="fas fa-chart-line"></i> Stats</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Current Level</h3>
+                        <p id="currentLevel">1</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Completed</h3>
+                        <p id="completedLevels">0/6</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Attempts</h3>
+                        <p id="attemptCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Success Rate</h3>
+                        <p id="successRate">0%</p>
+                    </div>
+                </div>
+
+                <div class="achievements">
+                    <h2><i class="fas fa-trophy"></i> Achievements</h2>
+                    <div class="achievement-list" id="achievementList">
+                        <div class="achievement locked">
+                            <i class="fas fa-lock"></i>
+                            <span>First Blood (Complete Level 1)</span>
+                        </div>
+                        <div class="achievement locked">
+                            <i class="fas fa-lock"></i>
+                            <span>Filter Evader (Complete Level 5)</span>
+                        </div>
+                        <div class="achievement locked">
+                            <i class="fas fa-lock"></i>
+                            <span>DOM Master (Complete Level 8)</span>
+                        </div>
+                        <div class="achievement locked">
+                            <i class="fas fa-lock"></i>
+                            <span>Obfuscation Expert (Complete Level 11)</span>
+                        </div>
+                        <div class="achievement locked">
+                            <i class="fas fa-lock"></i>
+                            <span>CSP Hacker (Complete Level 14)</span>
+                        </div>
+                        <div class="achievement locked">
+                            <i class="fas fa-lock"></i>
+                            <span>XSS Guru (Complete All Levels)</span>
+                        </div>
+                    </div>
+                </div>>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2><i class="fas fa-check-circle"></i> Success!</h2>
+            <p id="successMessage">You've completed this level!</p>
+            <div class="modal-actions">
+                <button id="nextLevel">Next Challenge</button>
+                <button id="stayHere">Stay Here</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>alert("This Playground is Designed by the Mr Grey Hat \nWho is the owner of the Pentagon404 Platform ")</script>
+</body>
+</html>

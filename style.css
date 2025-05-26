@@ -1,0 +1,464 @@
+@font-face {
+    font-family: 'hacker';
+    src:url('hacked/HACKED_Title.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    /* Dark Mode Variables (default) */
+    --bg-dark: #121212;
+    --bg-darker: #0a0a0a;
+    --bg-darkest: #050505;
+    --primary: #8b0000;
+    --primary-light: #a52a2a;
+    --primary-dark: #600000;
+    --text: #e0e0e0;
+    --text-light: #ffffff;
+    --text-dark: #b0b0b0;
+    --accent: #ff5555;
+    --success: #4caf50;
+    --warning: #ff9800;
+    --error: #f44336;
+    --border: #333333;
+    --border-light: #444444;
+    --code-bg: #1e1e1e;
+}
+
+.light-theme {
+    /* Light Mode Variables */
+    --bg-dark: #f5f5f5;
+    --bg-darker: #e0e0e0;
+    --bg-darkest: #ffffff;
+    --primary: #c62828;
+    --primary-light: #d32f2f;
+    --primary-dark: #b71c1c;
+    --text: #333333;
+    --text-light: #000000;
+    --text-dark: #555555;
+    --accent: #d32f2f;
+    --success: #2e7d32;
+    --warning: #f57c00;
+    --error: #c62828;
+    --border: #cccccc;
+    --border-light: #dddddd;
+    --code-bg: #f8f8f8;
+}
+
+/* Rest of your existing CSS remains the same */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-family: 'hacker';
+    color: var(--primary);
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+button:hover {
+    background-color: var(--primary);
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+}
+
+.challenges-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 20px;
+}
+
+.sidebar {
+    background-color: var(--bg-darker);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.sidebar h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--primary-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#challengeList {
+    list-style: none;
+    margin-bottom: 30px;
+    
+}
+
+#challengeList li {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#challengeList li:hover {
+    background-color: var(--bg-darker);
+    
+}
+
+#challengeList li.active {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+}
+
+.cheat-sheet {
+    margin-top: 30px;
+}
+
+.cheat-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.cheat-btn {
+    font-size: 0.8rem;
+    padding: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.challenge-area {
+    background-color: var(--bg-darker);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.level-info {
+    margin-bottom: 20px;
+}
+
+.level-info h2 {
+    color: var(--primary-light);
+    margin-bottom: 10px;
+}
+
+.level-info p {
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+.difficulty {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.difficulty-label {
+    color: var(--text-dark);
+}
+
+.stars {
+    color: var(--warning);
+}
+
+.input-section {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-light);
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+}
+
+.input-container textarea {
+    flex: 1;
+    min-height: 100px;
+    padding: 10px;
+    background-color: var(--bg-darkest);
+    border: 1px solid var(--border);
+    color: var(--text-light);
+    border-radius: 4px;
+    resize: vertical;
+    font-family: monospace;
+}
+
+.input-container button {
+    align-self: flex-start;
+}
+
+.output-section {
+    margin-bottom: 20px;
+}
+
+.output-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 15px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    bottom: -1px;
+}
+
+.tab-btn.active {
+    background-color: var(--bg-darker);
+    border: 1px solid var(--border);
+    border-bottom: 1px solid var(--bg-darker);
+}
+
+.tab-content {
+    display: none;
+    padding: 15px;
+    background-color: var(--bg-darkest);
+    border: 1px solid var(--border);
+    border-radius: 0 0 4px 4px;
+    min-height: 150px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.rendered-output {
+    min-height: 150px;
+}
+
+#sourceCode {
+    background-color: var(--code-bg);
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+    color: #d4d4d4;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+}
+
+.console-output {
+    font-family: monospace;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+}
+
+.hint-section {
+    margin-top: 20px;
+}
+
+.hint-content {
+    display: none;
+    padding: 15px;
+    background-color: var(--bg-darkest);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-top: 10px;
+    font-family: monospace;
+    color: var(--warning);
+}
+
+.stats-container {
+    background-color: var(--bg-darker);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background-color: var(--bg-darkest);
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.stat-card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-light);
+}
+
+.achievement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.achievement {
+    background-color: var(--bg-darkest);
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.7;
+}
+
+.achievement.unlocked {
+    opacity: 1;
+    border-color: var(--success);
+    color: var(--success);
+}
+
+.achievement.unlocked i {
+    color: var(--success);
+}
+
+.achievement.locked i {
+    color: var(--text-dark);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--bg-darker);
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    border: 1px solid var(--primary);
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+#nextLevel {
+    background-color: var(--success);
+}
+
+#nextLevel:hover {
+    background-color: #3d8b40;
+}
+
+#successMessage {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-container {
+        order: -1;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .challenges-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        order: 1;
+    }
+    
+    .cheat-items {
+        grid-template-columns: 1fr;
+    }
+}
