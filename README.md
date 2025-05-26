@@ -1,10 +1,9 @@
 # **XSS Pentagon404 Playground - Advanced XSS Playground**  
 **By Pentagon 404**  
 
-![XSS PENTAGON404 Banner]([https://i.imgur.com/xyz1234.png](https://codeby.net/blogs/wp-content/uploads/2017/04/042917_2021_XSSRCEX1.jpg))  
 
 ## **🔥 Overview**  
-**XSS Dojo** is an advanced, interactive playground for testing and mastering Cross-Site Scripting (XSS) techniques. Designed for security researchers, bug bounty hunters, and penetration testers, this environment provides **16 progressively challenging levels** covering various XSS vectors, filter bypasses, and real-world exploitation scenarios.  
+**XSS Pentagon404** is an advanced, interactive playground for testing and mastering Cross-Site Scripting (XSS) techniques. Designed for security researchers, bug bounty hunters, and penetration testers, this environment provides **16 progressively challenging levels** covering various XSS vectors, filter bypasses, and real-world exploitation scenarios.  
 
 🔹 **Safe & Controlled Environment** – Test payloads without harming real systems.  
 🔹 **16 Unique Challenges** – From basic script injection to CSP bypass and advanced obfuscation.  
